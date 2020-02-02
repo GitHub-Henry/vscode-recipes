@@ -32,7 +32,7 @@ Update your `package.json` section to:
 ```json
 "scripts": {
     "start": "meteor run",
-    "debug": "meteor run --inspect"
+    "debug": "meteor run --inspect-brk=9229"
 },
 ```
 
@@ -54,7 +54,8 @@ Then click on the gear icon to configure a launch.json file, selecting **Chrome*
             "request": "launch",
             "name": "Meteor: Chrome",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "outputCapture": "std"
         },
         {
             "type": "node",
@@ -62,6 +63,7 @@ Then click on the gear icon to configure a launch.json file, selecting **Chrome*
             "name": "Meteor: Node",
             "runtimeExecutable": "npm",
             "runtimeArgs": ["run", "debug"],
+            "outputCapture": "std",
             "port": 9229,
             "timeout": 30000
         }

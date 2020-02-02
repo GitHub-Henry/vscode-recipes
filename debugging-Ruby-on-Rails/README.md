@@ -94,6 +94,18 @@ This recipe shows how to debug a Ruby on Rails (without jRuby) application using
                 "args": [
                     "${file}"
                 ]
+            },
+            {
+              "name": "Debug RSpec - open spec file on a certain line",
+              "type": "Ruby",
+              "request": "launch",
+              "cwd": "${workspaceRoot}",
+              "useBundler": true,
+              "pathToBundler": "/path/to/rubygem/wrappers/bundle",
+              "pathToRDebugIDE": "/path/to/rubygem/gems/ruby-debug-ide-x.x.x/bin/rdebug-ide",
+              "debuggerPort": "1235",
+              "program": "/path/to/rubygem/bin/rspec",
+              "args": ["${file}:${lineNumber}"]
             }
         ]
     }
@@ -179,7 +191,7 @@ Reference [StackOverflow#26247926](https://stackoverflow.com/questions/26247926/
 
 ## Bonus
 
-1. If you are using `Docker` to run your application, you need to append the below configuration in `lanunch.json#configutations` to debug it. 
+1. If you are using `Docker` to run your application, you need to append the below configuration in `launch.json#configurations` to debug it. 
 
     ```json
     {
